@@ -5,99 +5,101 @@ import Table from './table'
 import { useEffect, useState } from 'react'
 
 function App() {
-  const[load,isload]=useState(false)
-  const[data,changedata]=useState([])
-  const[curval,chnageval]=useState('')
-  const[adddata,subadddata]=useState({name:'',age:'',city:''})
-  const[openadd,changeopen]=useState(false)
+  const[data,datagetter]=useState([])
+  const[serval,chnageval]=useState('')
+  const[addclose,addopen]=useState(false)
+  const[obj,getobj]=useState({name:'',age:'',city:''})
+  const[load,isloading]=useState(false)
 
-  const getdatas=async()=>{
+  const getdata=async()=>{
     try{
-        const fetchingdata=await fetch('http://localhost:3500/items')
-        if(!fetchingdata.ok)throw Error ("Please reload the site")
-        const jsondata=await fetchingdata.json()
-        changedata(jsondata) 
+      let fetching=await fetch('http://localhost:3500/items')
+      if(!fetching.ok)throw Error("Please reload the site")
+      let jsondata=await fetching.json()
+      datagetter(jsondata)
+      
     }catch(err){
-        console.log(err)
+      console.log(err);
+    }finally{
+      isloading(false)
     }
-    finally{
-        isload(false)
-    }    
-}
-
+  }
   useEffect(()=>{
-      isload(true)
-      getdatas()
-  }, [])
-  const removesearch=()=>{
+    isloading(true)
+    getdata()
+  },[])
+
+  const removeall=()=>{
     chnageval('')
   }
-    
-  const handleadddata=()=>{
-    subadddata({name:'',age:'',city:''})
-    changeopen(true)
-    
+
+  const openadder=()=>{
+    getobj({name:'',age:'',city:''})
+    addopen(true)
   }
-  const removeadd=()=>{
-    changeopen(false)
-      getdatas()
+
+  const loadcont=()=>{
+    addopen(false)
+    getdata()
   }
-  const getdata=(e)=>{
-    subadddata({...adddata,[e.target.name]:e.target.value})
+  const chnageuser=(e)=>{
+    getobj({...obj,[e.target.name]:e.target.value})
+
   }
-  const post= async (e)=>{
-    e.preventDefault()  
-    if(adddata.id){
-      const updatedata=await fetch(`http://localhost:3500/items/${adddata.id}`,{
+
+  const postdata=async()=>{
+
+    if(obj.id){
+      const updatedata=await fetch(`http://localhost:3500/items/${obj.id}`,{
         method:'PATCH',
         headers:{
-          'Content-type':'application/json'
+          'Content-Type':'application/json'
         },
-        body:JSON.stringify(adddata)
-      })
+        body:JSON.stringify(obj)
+       })
     }else{
-      const postingdata=await fetch('http://localhost:3500/items',{
+      const postdata=await fetch('http://localhost:3500/items',{
         method:'POST',
         headers:{
-          'Content-type':'application/json'
+          'Content-Type':'application/json'
         },
-        body:JSON.stringify(adddata)
-      })
-    } 
-
+        body:JSON.stringify(obj)
+       })
     }
+     
+  }
 
-    
-  
   const deleter=async(id)=>{
-    const deleting=await fetch(`http://localhost:3500/items/${id}`,{
+    const deletedata=await fetch(`http://localhost:3500/items/${id}`,{
       method:'DELETE'
     })
-      getdatas()   
+    getdata()
   }
-  const editing=async(data)=>{
-    console.log(data);
-    subadddata(data)
-    changeopen(true)
-    
 
+  const editer=(data)=>{
+    getobj(data)
+    addopen(true)
   }
+
+
+  
+  
   return (
     <>
       <Title/>
-      <Seradd curval={curval}
+      <Seradd serval={serval}
       chnageval={chnageval}
-      removesearch={removesearch}
-      handleadddata={handleadddata}/>
-      <Table load={load}
-      data={data.filter((user)=>user.name.toLowerCase().includes(curval.toLowerCase())||user.city.toLowerCase().includes(curval.toLowerCase()))}
-      openadd={openadd}
-      removeadd={removeadd}
-      adddata={adddata}
-      getdata={getdata}
-      post={post}
-      deleter={deleter}
-      editing={editing}/>
+      removeall={removeall}
+      openadder={openadder}/>
+      <Table data={data.filter((info)=>info.name.toLowerCase().includes(serval.toLowerCase())||info.city.toLowerCase().includes(serval.toLowerCase()))}
+        addclose={addclose}
+        loadcont={loadcont}
+        postdata={postdata}
+        obj={obj}
+        chnageuser={chnageuser}
+        load={load}
+        deleter={deleter}
+        editer={editer}/>
     </>
   )
 }

@@ -1,13 +1,13 @@
 import { TbXboxXFilled } from "react-icons/tb";
 import './seradd.css'
-const Seradd = ({curval,chnageval,removesearch,handleadddata}) => {
+const Seradd = ({serval,chnageval,removeall,openadder}) => {
   return (
     <div className="inp">
       <form className="form">
-          <input type="text" placeholder="Search Items" value={curval} onChange={(e)=>chnageval(e.target.value)}/>
-          <span  onClick={removesearch}><TbXboxXFilled /></span>
+          <input type="text" placeholder="Search Items" value={serval} onChange={(e)=>chnageval(e.target.value)}/>
+          <span onClick={removeall}><TbXboxXFilled /></span>
       </form>
-      <button onClick={handleadddata}>Add On</button>
+      <button onClick={openadder}>Add On</button>
     </div>
   )
 }

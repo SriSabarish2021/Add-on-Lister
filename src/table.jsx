@@ -1,11 +1,12 @@
 import './table.css'
 import { TbXboxXFilled } from "react-icons/tb";
 
-const Table = ({load,data,openadd,removeadd,adddata,getdata,post,deleter,editing}) => {
+const Table = ({data,addclose,loadcont,postdata,obj,chnageuser,load,deleter,editer}) => {
     
   return (
     <div className='container'>
-        {load?<p className='load'>Loading... Please Wait</p>:console.log("Sucessfully gotted")}
+        {load?<p className='load'>Loading...please Wait</p>:console.log('Table loaded succesfully')
+        }
         <table className='table'>
             <thead>
                 <tr>
@@ -19,31 +20,32 @@ const Table = ({load,data,openadd,removeadd,adddata,getdata,post,deleter,editing
             </thead>
             <tbody>
                 {data.map((items,index)=>
-                           <tr key={index}>
-                           <td>{index+1}</td>
-                           <td>{items.name}</td>
-                           <td>{items.age}</td>
-                           <td>{items.city}</td>
-                           <td><button className='green' onClick={()=>editing(items)}>Edit</button></td>
-                           <td><button className='red' onClick={()=>deleter(items.id)}>Delete</button></td>
-                       </tr>
+                        <tr key={items.id}>
+                            <td>{index+1}</td>
+                            <td>{items.name}</td>
+                            <td>{items.age}</td>
+                            <td>{items.city}</td>
+                            <td><button className='green' onClick={()=>editer(items)}>Edit</button></td>
+                            <td><button className='red' onClick={()=>deleter(items.id)}>Delete</button></td>
+                        </tr>
                 )}
             </tbody>     
         </table>
-        {openadd && (
-                <div className='adddata'>
-                    <div className='contents'>
-                        <div className='close'>
-                            <p className='addtitle'>Add your Data</p>
-                            <span onClick={removeadd}><TbXboxXFilled/></span>
-                        </div>
-                        <input type="text" id='name' name='name' placeholder='Name' value={adddata.name} onChange={getdata}/>
-                        <input type="number" id='age' name='age' placeholder='Age' value={adddata.age} onChange={getdata}/>
-                        <input type="text" id='city' name='city' placeholder='City' value={adddata.city} onChange={getdata}/>
-                        <button onClick={post}>Add Data</button>
+        {addclose && (
+            <div className='adddata'>
+                <div className='contents'>
+                    <div className='close'>
+                        <p className='addtitle'>Add-Your Data</p>
+                        <span onClick={loadcont}><TbXboxXFilled/></span>
                     </div>
+                    <input type="text" placeholder='Name' name='name' value={obj.name} onChange={chnageuser}/>
+                    <input type="number" placeholder='Age' name='age' value={obj.age} onChange={chnageuser}/>
+                    <input type="text" placeholder='City' name='city' value={obj.city} onChange={chnageuser}/>
+                    <button onClick={postdata}>Add on</button>
                 </div>
-            )}
+                
+            </div>
+        )}
     </div>
   )
 }
