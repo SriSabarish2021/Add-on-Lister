@@ -14,7 +14,8 @@
     font-size: 26px;
     font-family:'Playpen Sans';
     font-weight: 800;
+    transition-duration: 0.6s;
 }
 .title h1:hover {
-    text-shadow: 0 0 10px #3498db, 0 0 20px #3498db, 0 0 30px #3498db, 0 0 40px #3498db;
+    text-shadow: 0 0 10px #86ccfa, 0 0 20px #34dbba, 0 0 30px #7be9e0, 0 0 40px #3498db;
   }

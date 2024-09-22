@@ -21,6 +21,10 @@
     align-items: center;
     border-radius: 10px;
 }
+.form:focus-within{
+    border: 2px solid rgba(250, 165, 116, 0.751);
+
+}
 .form input{
     width: 270px;
     height: 40px;
@@ -53,7 +57,11 @@
 }
 .form span:hover{
     cursor: pointer;
-    color: #5dade2;
+    color: #ff590c;
+}
+.inp button.clicked {
+    transform: scale(0.95);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -74,3 +82,74 @@
     background-color: rgb(4, 243, 163);
     cursor: pointer;
 }
+
+
+@media screen and (max-width:755px) {
+    .form{
+        width: 250px;
+    }
+    .form input{
+        width: 220px;
+    }
+    .form span{
+        width: 30px;
+    }
+        
+    .inp button{
+        width: 70px;
+        height: 35px;
+        font-size: 15px;
+    }
+  }
+
+
+  
+@media screen and (max-width:550px) {
+    .inp{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    .form{
+        width: 200px;
+    }
+    .form input{
+        width: 170px;
+    }        
+    .inp button{
+        width: 60px;
+        height: 35px;
+        font-size: 14px;
+    }
+}
+
+
+
+@media screen and (max-width:475px) {
+    .inp button{
+        width: 60px;
+        height: 30px;
+        font-size: 13px;
+    }
+  }
+
+  @media screen and (max-width:395px) {
+    .form{
+        width: 170px;
+        height: 32px;
+    }
+    .form input{
+        width: 140px;
+        height: 32px;
+        font-size: 14px;
+
+    }        
+    .inp button{
+        width: 60px;
+        height: 25px;
+        font-size: 12px;
+    }
+    .form span{
+        height: 32px;
+        font-size: 15px;
+    }
+  }

@@ -10,6 +10,8 @@ function App() {
   const[addclose,addopen]=useState(false)
   const[obj,getobj]=useState({name:'',age:'',city:''})
   const[load,isloading]=useState(false)
+  const[edit,gowithedit]=useState(false)
+
 
   const getdata=async()=>{
     try{
@@ -35,6 +37,7 @@ function App() {
 
   const openadder=()=>{
     getobj({name:'',age:'',city:''})
+    gowithedit(false)
     addopen(true)
   }
 
@@ -78,6 +81,7 @@ function App() {
 
   const editer=(data)=>{
     getobj(data)
+    gowithedit(true)
     addopen(true)
   }
 
@@ -99,7 +103,8 @@ function App() {
         chnageuser={chnageuser}
         load={load}
         deleter={deleter}
-        editer={editer}/>
+        editer={editer}
+        edit={edit}/>
     </>
   )
 }

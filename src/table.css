@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&family=Macondo+Swash+Caps&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&family=M+PLUS+Rounded+1c:wght@100;300;400;500;700;800;900&family=Macondo+Swash+Caps&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
 .table{
     width: 100%;
     border-collapse: collapse;
@@ -116,26 +116,23 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-left: 280px;
-    padding-right:280px;
+
 }
 .contents{
     background-color: aliceblue;
-    width: 100%;
+    width:1200px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
     padding-left: 20px;
     border-radius: 15px;
-
 }
 .addtitle{
     text-align: center;
-    font-size: 24px;
+    font-size: 26px;
     font-family: 'Kanit';
     font-weight: 600;
-    margin-top: 20px;
     color: rgb(66, 66, 66);
 }
 .contents input{
@@ -184,6 +181,8 @@
     align-items:center;
     padding-left: 20px;
     padding-right: 20px;
+    margin-top: 20px;
+
 }
 .close span{
     margin-right: 40px;
@@ -195,7 +194,263 @@
     font-size: 23px;
     transition-duration: 0.5s;
 }
+.close span.clicked {
+    transform: scale(0.95);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
 .close span:hover{
     color: rgb(255, 144, 40);
     cursor: pointer;
 }
+
+@media screen and (max-width:1250px) {
+    .contents{
+      width: 1050px;
+    }
+  }
+
+
+
+  @media screen and (max-width:755px) {
+    .table td{
+        font-size: 14px;
+        letter-spacing: 1px;
+
+    }
+  }
+
+  @media screen and (max-width:650px) {
+    .table td{
+        font-size: 13px;
+    }
+    .green{
+        width: 45px;
+        font-size: 13px;
+        color: black;
+        border-radius: 5px;
+
+    }
+    .red{
+        height: 25px;
+        width: 55px;
+        font-size: 13px;   
+        border-radius: 5px;
+
+    }
+  }
+
+  @media screen and (max-width:550px) {
+    .table td{
+        font-size: 12px;
+    }
+    .table th{
+        font-size: 13px;
+    }
+    .green{
+        width: 40px;
+        font-size: 12px;
+        color: black;
+    }
+    .red{
+        height: 25px;
+        width: 50px;
+        font-size: 12px;   
+    }
+  }
+
+  
+  @media screen and (max-width:475px) {
+    .table td{
+        font-size: 11px;
+    }
+    .table th{
+        font-size: 12px;
+    }
+    .green{
+        width: 40px;
+        font-size: 12px;
+        color: black;
+    }
+    .red{
+        height: 25px;
+        width: 50px;
+        font-size: 12px;   
+    }
+  }
+
+  @media screen and (max-width:395px) {
+    .table td{
+        font-size: 10px;
+    }
+    .table th{
+        font-size: 10px;
+    }
+    .green{
+        width: 35px;
+        font-size: 10px;
+        color: black;
+        height: 20px;
+
+    }
+    .red{
+        height: 20px;
+        width: 40px;
+        font-size: 10px;   
+    }
+  }
+
+
+  @media screen and (max-width:365px) {
+    .table td{
+        font-size: 10px;
+        letter-spacing: 0px;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: black;
+    }
+    .table th{
+        font-size: 10px;
+    }
+    .green{
+        width: 35px;
+        font-size: 10px;
+        color: black;
+        height: 20px;
+
+    }
+    .red{
+        height: 20px;
+        width: 40px;
+        font-size: 10px;   
+    }
+  }
+
+  @media screen and (max-width:325px) {
+    .table td{
+        font-size: 9px;
+        text-align: center;
+        padding: 5px;
+    }
+    .table th{
+        font-size: 10px;
+    }
+    .green{
+        width: 35px;
+        font-size: 10px;
+        color: black;
+        height: 20px;
+
+    }
+    .red{
+        height: 20px;
+        width: 40px;
+        font-size: 10px;   
+    }
+  }
+
+
+
+  @media screen and (max-width:1250px) {
+    .contents{
+      width: 1050px;
+    }
+  }
+
+
+  @media screen and (max-width:1120px) {
+    .contents{
+      width: 980px;
+    }
+  }
+
+  @media screen and (max-width:1000px) {
+    .contents{
+      width: 870px;
+    }
+  }
+
+  @media screen and (max-width:900px) {
+    .contents{
+      width: 830px;
+    }
+  }
+
+  @media screen and (max-width:845px) {
+    .contents{
+      width: 750px;
+    }
+  }
+
+  @media screen and (max-width:765px) {
+    .contents{
+      width: 700px;
+    }
+  }
+
+  @media screen and (max-width:710px) {
+    .contents{
+      width: 640px;
+    }
+  }
+
+  @media screen and (max-width:650px) {
+    .contents{
+      width: 570px;
+    }
+  }
+  @media screen and (max-width:580px) {
+    .contents{
+      width: 530px;
+    }
+  }
+
+  @media screen and (max-width:540px) {
+    .contents{
+      width: 420px;
+    }
+    .close span{
+        margin-right: 20px;
+    }
+  }
+
+
+  @media screen and (max-width:430px) {
+    .contents{
+      width: 350px;
+    }
+    .close span{
+        margin-right: 20px;
+    }
+  }
+
+  @media screen and (max-width:360px) {
+    .contents{
+      width: 300px;
+    }
+    .close span{
+        margin-right: 20px;
+    }
+    .close span{
+        margin-right: 0px;
+        font-size: 20px;
+    }
+    .addtitle{
+        font-size: 20px;
+    }
+    .close{
+        margin-top: 10px;
+    }
+    .addtitle{
+        margin-top: 0px;
+    }
+    .contents button{
+        height: 35px;
+        width: 80px;
+    }
+  }
+
+  @media screen and (max-width:310px) {
+    .contents{
+      width: 280px;
+    }
+
+  }

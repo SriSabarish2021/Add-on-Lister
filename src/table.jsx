@@ -1,7 +1,7 @@
 import './table.css'
 import { TbXboxXFilled } from "react-icons/tb";
 
-const Table = ({data,addclose,loadcont,postdata,obj,chnageuser,load,deleter,editer}) => {
+const Table = ({data,addclose,loadcont,postdata,obj,chnageuser,load,deleter,editer,edit}) => {
     
   return (
     <div className='container'>
@@ -35,13 +35,13 @@ const Table = ({data,addclose,loadcont,postdata,obj,chnageuser,load,deleter,edit
             <div className='adddata'>
                 <div className='contents'>
                     <div className='close'>
-                        <p className='addtitle'>Add-Your Data</p>
+                        {edit?<p className='addtitle'>Edit-Your Data</p>:<p className='addtitle'>Add-Your Data</p>}
                         <span onClick={loadcont}><TbXboxXFilled/></span>
                     </div>
                     <input type="text" placeholder='Name' name='name' value={obj.name} onChange={chnageuser}/>
                     <input type="number" placeholder='Age' name='age' value={obj.age} onChange={chnageuser}/>
                     <input type="text" placeholder='City' name='city' value={obj.city} onChange={chnageuser}/>
-                    <button onClick={postdata}>Add on</button>
+                    <button onClick={()=>{postdata}}>{edit?'Edit User':'Add On'}</button>
                 </div>
                 
             </div>
